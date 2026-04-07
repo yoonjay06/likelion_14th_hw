@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="page-container">
+        <img src="{% static 'images/ice.png' %}" alt="아기사자" width="200px">
+        <p class="tag">LikeLion_14th_session</p>
+        <h1 class="title">2026 멋쟁이사자처럼 {{ generation }}기 2주차 세션 정리</h1>
+        <h6 class="welcome">프론트엔드 트랙 아기사자 윤재원</h6>
+
+        <div class="section">
+            <div class="section-title">🦁 Django 첫페이지 만들기 🦁</div>
+            <ul>
+                <li>HTML 작성 : {{ info.html }}</li>
+                <li>VIEW 작성 : {{ info.views }}</li>
+                <li>{{ info.secondpg }}</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🦁 Template언어 🦁</div>
+            <ul>
+                {% for shortcut in shortcuts %}
+                    <li>{{ shortcut }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🦁 중복되는 html 파일 정리 🦁</div>
+            <ul>    
+                <li>Template 상속 : mainpage와 secondpage에서 중복되는 내용 합치기</li>
+                <li>Template 경로 추가 : Django는 기본적으로 설치된 app들 중에서만 탬플릿을 탐색하기에 project 폴더에 있는 템플릿을 찾을 수 없어 오류 발생</li>
+                <li>nabvar 상속 : 상속하고자 하는 영역이 여러 군데 생기므로 이를 각각 분리하여 저장하는 것이 중요. -> 코드의 반복을 줄이기 위함!</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🦁 정적 파일 분리 🦁</div>
+            <ul>    
+                <li>css 분리 : project 폴더에 static 폴더 생성 -> static 폴더 내에 css폴더, images 폴더 생성 -> css 폴더 내에 project.css 파일 생성</li>
+                <li>base.html에서 css 연결하기</li>
+                <li>image 분리 : mainpage.html에서 image 넣기 setting.py에서 정적 파일 경로 설정하기!</li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+</body>
+
+</html>
